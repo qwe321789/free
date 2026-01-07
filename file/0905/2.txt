@@ -1,0 +1,159 @@
+/header>
+   <script type="text/javascript">var hiwatchs=window.localStorage.getItem("hiwatch");if(hiwatchs){hiwatchs=JSON.parse(hiwatchs);}else{hiwatchs=false;}new Vue({el: '#header',data: function() {return {lists:hiwatchs,ishwo:0
+}},mounted(){document.addEventListener('click',e=>{if(!this.$el.contains(e.targer)){this.ishwo=0
+}})
+},methods:{cshow(){if(this.ishwo==1){this.ishwo=0;}else{this.ishwo=1;}},dijiji(item){if(item.link && item.link.indexOf("movies")!=-1){}else{return '第'+(item.ep+1)+'集';}},clearhiwathch(){this.lists=[]
+window.localStorage.removeItem("hiwatch");},formatSeconds(value) {let result = parseInt(value)
+let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600);let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));let s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60));
+let res = '';if(h !== '00') res += `${h}:`;if(m !== '00') res += `${m}:`;res += `${s}`;return res;}}});</script>
+   <div class="fixheadresp">
+    <header class="responsive" id="yihead">
+     <div class="nav">
+      <a class="aresp nav-resp"></a>
+     </div>
+     <div class="wachbox yidongduan" @click.stop="showlist">
+      <svg class="icon" style="width: 0.9em;height: 1.3em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3028">
+       <path fill="#666" d="M512 960C264.576 960 64 759.424 64 512S264.576 64 512 64s448 200.576 448 448-200.576 448-448 448z m0-80c203.24 0 368-164.76 368-368S715.24 144 512 144 144 308.76 144 512s164.76 368 368 368z m174.37-226.032c14.377 16.773 12.435 42.025-4.338 56.402-16.773 14.377-42.025 12.435-56.402-4.338l-144-168A40 40 0 0 1 472 512V272c0-22.091 17.909-40 40-40s40 17.909 40 40v225.203l134.37 156.765z" p-id="3029"></path>
+      </svg>
+      <div class="hiwatchlist ltr" v-show="ydishwo==1">
+       <div class="ctsx" v-if="lists!=false">
+        观看记录<a class="more" @click="clearhiwathch">清除记录</a>
+       </div>
+       <ul>
+        <template v-if="lists!=false">
+         <li v-for="item in lists" :key="item.key"><a :href="item.link" class="clearfix">
+           <div class="title">
+            {{item.title}} <span style="float:right;">{{dijiji(item)}}</span>
+           </div>
+           <div class="times" style="display:none;">
+            观看至 {{formatSeconds(item.time)}}
+           </div></a></li>
+        </template>
+        <template v-else>
+         <li class="wjl">暂无观看记录</li>
+        </template>
+       </ul>
+      </div>
+     </div>
+     <div class="search">
+      <a class="aresp search-resp"></a>
+     </div>
+     <div class="logo" style="line-height:1.3"> <a href="https://99dy.one/" style="font-size:26px;color:white">99dy</a><a href="https://99dy.one/" style="font-size:26px;color:#fe628ee6;">.one</a> 
+     </div> 
+
+
+
+ <script type="text/javascript">var hiwatchs=window.localStorage.getItem("hiwatch");if(hiwatchs){hiwatchs=JSON.parse(hiwatchs);}else{hiwatchs=false;}new Vue({el: '#yihead',data: function() {return {lists:hiwatchs,ydishwo:0
+}},mounted(){},methods:{dijiji(item){if(item.link && item.link.indexOf("movies")!=-1){}else{return '第'+(item.ep+1)+'集';}},showlist(){
+if(this.ydishwo==1){this.ydishwo=0
+}else{this.ydishwo=1
+}},clearhiwathch(){this.lists=[]
+this.ydishwo=0;window.localStorage.removeItem("hiwatch");},formatSeconds(value) {let result = parseInt(value)
+let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600);let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));let s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60));
+let res = '';if(h !== '00') res += `${h}:`;if(m !== '00') res += `${m}:`;res += `${s}`;return res;}}});</script>
+    <div class="search_responsive">
+     <form method="get" id="form-search-resp" class="form-resp-ab" action="https://www.99dy.one/xssearch">
+      <input type="text" placeholder="搜寻繁简中英片名关键字皆可" name="q" id="ms" value="" autocomplete="off" required><button type="submit" class="search-button"><span class="icon-search3"></span></button>
+     </form>
+     <div class="live-search"></div>
+    </div>
+    <div id="arch-menu" class="menuresp">
+     <div class="menu">
+      <div class="menu-%e9%81%b8%e5%96%ae-container">
+       <ul id="main_header" class="resp">
+        <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-93626"><a href="https://www.99dy.one/home/" aria-current="page">首页</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-196827"><a href="https://www.99dy.one/movies/">电影</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14452"><a href="https://www.99dy.one/drama/">连续剧</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-239970"><a href="https://www.99dy.one/tvshows/">电视剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14453"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=usdrama">美剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14454"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=krdrama">韩剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15557"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=cndrama">陆剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14455"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=twdrama">台剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35782"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=jpdrama">日剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-188110"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=hkdrama">港剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32256"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=10">综艺</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357980"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=miniseries">短剧</a></li>
+         </ul></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14457"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=anime">动漫</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200"><a href="https://www.99dy.one/cats/popular-movies/">热门电影</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-256628"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby=month&amp;tvtype">本月热门</a></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6948"><a>排行</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200203"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby=view&amp;tvtype">人气电影</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200204"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby=view&amp;tvtype">人气影剧</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200605"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby=view&amp;tvtype=anime">人气动漫</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-234131"><a href="https://www.99dy.one/trending/">观看趋势</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212284"><a href="https://www.99dy.one/imdbtop/">IMDb排行</a></li>
+         </ul></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-188"><a>地区</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="https://www.99dy.one/movies/?genres&amp;region=%e6%ad%90%e7%be%8e&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">欧美</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="https://www.99dy.one/movies/?genres&amp;region=%e5%8f%b0%e7%81%a3&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">台湾</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"><a href="https://www.99dy.one/movies/?genres&amp;region=%e9%a6%99%e6%b8%af&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">香港</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194"><a href="https://www.99dy.one/movies/?genres&amp;region=%e5%a4%a7%e9%99%b8&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">大陆</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-196"><a href="https://www.99dy.one/movies/?genres&amp;region=%e9%9f%93%e5%9c%8b&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">韩国</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-195"><a href="https://www.99dy.one/movies/?genres&amp;region=%e6%97%a5%e6%9c%ac&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">日本</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-197"><a href="https://www.99dy.one/movies/?genres&amp;region=%e6%b3%b0%e5%9c%8b&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">泰国</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-198"><a href="https://www.99dy.one/movies/?genres&amp;region=%e5%8d%b0%e5%ba%a6&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">印度</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-199"><a href="https://www.99dy.one/movies/?genres&amp;region=%e6%b5%b7%e5%a4%96&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">海外</a></li>
+         </ul></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-201"><a>年份</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-333089"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2025&amp;cats&amp;orderby&amp;tvtype">2025年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-305994"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2024&amp;cats&amp;orderby&amp;tvtype">2024年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-261937"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2023&amp;cats&amp;orderby&amp;tvtype">2023年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212285"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2022&amp;cats&amp;orderby&amp;tvtype">2022年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-97633"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2021&amp;cats&amp;orderby&amp;tvtype">2021年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49300"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2020&amp;cats&amp;orderby&amp;tvtype">2020年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-202"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2019&amp;cats&amp;orderby&amp;tvtype">2019年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-203"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2018&amp;cats&amp;orderby&amp;tvtype">2018年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-204"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2017&amp;cats&amp;orderby&amp;tvtype">2017年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-205"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2016&amp;cats&amp;orderby&amp;tvtype">2016年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-206"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2015&amp;cats&amp;orderby&amp;tvtype">2015年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-207"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2014&amp;cats&amp;orderby&amp;tvtype">2014年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-208"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2013&amp;cats&amp;orderby&amp;tvtype">2013年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-209"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2012&amp;cats&amp;orderby&amp;tvtype">2012年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-210"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2011&amp;cats&amp;orderby&amp;tvtype">2011年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-211"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2010&amp;cats&amp;orderby&amp;tvtype">2010年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2009&amp;cats&amp;orderby&amp;tvtype">2009年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-213"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2008&amp;cats&amp;orderby&amp;tvtype">2008年</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-216"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear=2007-1970&amp;cats&amp;orderby&amp;tvtype">2007年-1970年</a></li>
+         </ul></li>
+        <li class="genres menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-167"><a>类型</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"><a href="https://www.99dy.one/movies/?genres=action&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">动作片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-183"><a href="https://www.99dy.one/movies/?genres=science-fiction&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">科幻片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="https://www.99dy.one/movies/?genres=fantasy&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">奇幻片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168"><a href="https://www.99dy.one/movies/?genres=adventure&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">冒险片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-187"><a href="https://www.99dy.one/movies/?genres=thriller&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">惊悚片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-178"><a href="https://www.99dy.one/movies/?genres=mystery&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">悬疑片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182"><a href="https://www.99dy.one/movies/?genres=crime&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">犯罪片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-175"><a href="https://www.99dy.one/movies/?genres=horror&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">恐怖片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179"><a href="https://www.99dy.one/movies/?genres=war&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">战争片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-172"><a href="https://www.99dy.one/movies/?genres=comedy&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">喜剧片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-177"><a href="https://www.99dy.one/movies/?genres=romance&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">爱情片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-181"><a href="https://www.99dy.one/movies/?genres=disaster&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">灾难片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-180"><a href="https://www.99dy.one/movies/?genres=history&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">历史片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-165"><a href="https://www.99dy.one/movies/?genres=biography&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">传记片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-169"><a href="https://www.99dy.one/movies/?genres=drama&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">剧情片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-171"><a href="https://www.99dy.one/movies/?genres=animation&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">动画片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="https://www.99dy.one/movies/?genres=family&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">家庭片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-186"><a href="https://www.99dy.one/movies/?genres=music&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">音乐片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-184"><a href="https://www.99dy.one/movies/?genres=western&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">西部片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-185"><a href="https://www.99dy.one/movies/?genres=sports&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">运动片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-176"><a href="https://www.99dy.one/movies/?genres=erotic&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype">情色片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-270378"><a href="https://www.99dy.one/tvtype/13/">伦理片</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55591"><a href="https://www.99dy.one/drama/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby&amp;tvtype=12">写真集</a></li>
+         </ul></li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3226"><a>系列</a>
+         <ul class="sub-menu">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3227"><a href="https://www.99dy.one/genre/mcu/">漫威英雄电影</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3228"><a href="https://www.99dy.one/genre/dceu/">DC英雄电影</a></li>
+          <li class="menu-item menu-item-type-taxonomy menu-item-object-cats menu-item-98852"><a href="https://www.99dy.one/cats/netflix/">Netflix电影</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-98941"><a href="https://www.99dy.one/network/netflix/">Netflix影集</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8608"><a href="https://www.99dy.one/movies/?genres&amp;region&amp;dtyear&amp;cats&amp;orderby=modified&amp;tvtype">近期更新电影</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3990"><a href="https://www.99dy.one/movieseries/">更多系列电影</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341796"><a href="https://www.99dy.one/movieseries/bd/">BD画质</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341797"><a href="https://www.99dy.one/movieseries/hd/">HD画质</a></li>
+         </ul></li>
